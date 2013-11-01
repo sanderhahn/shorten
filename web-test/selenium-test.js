@@ -1,3 +1,12 @@
+//Selenium-Webdriver self test:
+//mocha -R list --recursive node_modules/selenium-webdriver/test
+
+//WebDriverJS API:
+//https://code.google.com/p/selenium/wiki/WebDriverJs
+
+//Hosted Solution:
+//https://saucelabs.com/
+
 var assert = require('assert'),
     fs = require('fs');
 
