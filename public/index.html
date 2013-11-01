@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+  <title>Shorten</title>
+  <style>
+    body {
+      text-align: center;
+      font-size: 16pt;
+      font-family: arial, sans-serif;
+      background-color: #fafad2;
+    }
+    input, button {
+      padding: .5em;
+      margin: .5em;
+      font-size: 16pt;
+    }
+    input {
+      width: 20em;
+    }
+    #short {
+      background-color: transparent;
+    }
+  </style>
+</head>
+<body>
+  <h1>Shorten</h1>
+
+  <input id="url" placeholder="Paste a link to shorten it">
+  <br />
+
+  <button onclick="shorten()">Shorten</button>
+  <br />
+
+  <input id="short" style="border-width: 0;">
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/zepto/1.0/zepto.min.js"></script>
+  <script>
+    function shorten() {
+      var i = $("#url")
+      var o = $("#short")
+      var v = i.val()
+      if(v) {
+        if(!v.match(/^https?:\/\//)) {
+          v = 'http://' + v
+          i.val(v)
+        }
+        $.ajax({type: 'POST', url: '/shorten', data: {url: v}, dataType: 'json', success: function(result) {
+          o.val(result.short)
+          o.focus()
+          o.select()
+        } })
+      }
+    }
+  </script>
+  </body>
+</html>

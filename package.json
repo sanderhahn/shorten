@@ -1,0 +1,17 @@
+{
+  "name": "shorten",
+  "version": "0.0.1",
+  "dependencies": {
+    "level": "~0.17.0-1"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "nodeunit nodeunit-test; mocha -R list --recursive web-test"
+  },
+  "devDependencies": {
+    "nodemon": "~0.7.10",
+    "nodeunit": "~0.8.1",
+    "mocha": "~1.13.0",
+    "selenium-webdriver": "~2.37.0"
+  }
+}
